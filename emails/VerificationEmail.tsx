@@ -5,7 +5,6 @@ import {
     Heading,
     Hr,
     Html,
-    Img,
     Link,
     Preview,
     Section,
@@ -33,52 +32,50 @@ export const EchoVerifyEmail = ({
             <Body style={main}>
                 <Preview>Complete your Echo account verification</Preview>
                 <Container style={container}>
-                    {/* Header with Logo */}
+                    {/* Header with Text Logo */}
                     <Section style={header}>
-                        <Img
-                            src={`${baseUrl}/static/echo-logo.png`}
-                            width="80"
-                            height="80"
-                            alt="Echo"
-                            style={logo}
-                        />
                         <Text style={brandName}>ECHO</Text>
+                        <Text style={tagline}>Where connections resonate</Text>
                     </Section>
 
                     {/* Main Content */}
                     <Section style={content}>
                         <Heading style={h1}>Hi {username},</Heading>
                         <Text style={text}>
-                            Thank you for joining Echo! To complete your account setup, please
-                            verify your email address by entering this code in the app:
+                           {` Welcome to Echo! We're excited to have you on board. To complete your 
+                            account setup, please verify your email address using this code:`}
                         </Text>
 
                         {/* Verification Code Box */}
                         <Section style={codeContainer}>
                             <Text style={code}>{verificationCode}</Text>
-                            <Text style={expiryText}>Expires in 10 minutes</Text>
+                            <Text style={expiryText}>This code expires in 60 minutes</Text>
                         </Section>
 
                         <Text style={text}>
-                            {`If you didn't request this code, you can safely ignore this email.`}
+                            Simply enter this code in the verification screen of the Echo app.
+                        </Text>
+
+                        <Text style={textLight}>
+                           {` If you didn't request this code, please ignore this email or contact 
+                            our support team if you have any concerns.`}
                         </Text>
 
                         <Hr style={hr} />
 
                         {/* Support Section */}
                         <Section style={supportSection}>
-                            <Text style={supportText}>Need help?</Text>
+                            <Text style={supportText}>Need help or have questions?</Text>
                             <Link href={`mailto:${supportEmail}`} style={supportLink}>
                                 Contact our support team
                             </Link>
+                            <Text style={supportTextSmall}>{`We're here to help!`}</Text>
                         </Section>
                     </Section>
 
                     {/* Footer */}
                     <Section style={footer}>
-                        <Text style={footerText}>
-                            © {new Date().getFullYear()} Echo Technologies, Inc.
-                        </Text>
+                        <Hr style={footerHr} />
                         <Section style={footerLinks}>
                             <Link href={`${baseUrl}/privacy`} style={footerLink}>
                                 Privacy Policy
@@ -92,8 +89,9 @@ export const EchoVerifyEmail = ({
                                 Our Website
                             </Link>
                         </Section>
-                        <Text style={footerAddress}>
-                            123 Communication Way, San Francisco, CA 94107
+                        <Text style={footerText}>
+                            © {new Date().getFullYear()} Echo, Inc.<br />
+                            All rights reserved.
                         </Text>
                     </Section>
                 </Container>
@@ -104,128 +102,154 @@ export const EchoVerifyEmail = ({
 
 // Styles
 const main = {
-    backgroundColor: "#ffffff",
+    backgroundColor: "#f9f9f9",
     fontFamily:
-        '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+        '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
     margin: 0,
     padding: 0,
 };
 
 const container = {
-    margin: "0 auto",
-    padding: "20px",
+    margin: "30px auto",
+    padding: "40px",
     maxWidth: "600px",
+    backgroundColor: "#ffffff",
+    borderRadius: "12px",
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
 };
 
 const header = {
     textAlign: "center" as const,
-    padding: "32px 0 24px",
-};
-
-const logo = {
-    margin: "0 auto",
+    padding: "0 0 24px",
+    marginBottom: "24px",
 };
 
 const brandName = {
-    fontSize: "24px",
-    fontWeight: "bold",
-    color: "#3b82f6",
-    margin: "16px 0 0",
-    textAlign: "center" as const,
+    fontSize: "36px",
+    fontWeight: "700",
+    color: "#1a1a1a",
+    margin: "0 0 8px",
+    letterSpacing: "1px",
+};
+
+const tagline = {
+    fontSize: "16px",
+    color: "#666",
+    margin: "0",
+    fontWeight: "400",
 };
 
 const content = {
-    padding: "0 24px 24px",
+    padding: "0",
 };
 
 const h1 = {
     fontSize: "24px",
-    fontWeight: "bold",
-    color: "#1e293b",
-    margin: "0 0 20px",
+    fontWeight: "600",
+    color: "#1a1a1a",
+    margin: "0 0 24px",
 };
 
 const text = {
     fontSize: "16px",
-    lineHeight: "24px",
-    color: "#334155",
-    margin: "0 0 20px",
+    lineHeight: "26px",
+    color: "#333",
+    margin: "0 0 24px",
+};
+
+const textLight = {
+    ...text,
+    color: "#666",
+    fontSize: "15px",
 };
 
 const codeContainer = {
-    background: "#f8fafc",
+    background: "#f5f7ff",
     borderRadius: "8px",
-    margin: "24px 0",
-    padding: "24px",
+    margin: "32px 0",
+    padding: "32px 24px",
     textAlign: "center" as const,
+    border: "1px solid #e0e5ff",
 };
 
 const code = {
     fontSize: "42px",
-    fontWeight: "bold",
-    letterSpacing: "4px",
-    color: "#3b82f6",
-    margin: "0 0 8px",
+    fontWeight: "700",
+    letterSpacing: "6px",
+    color: "#3a5eff",
+    margin: "0 0 12px",
+    fontFamily: "'Courier New', Courier, monospace",
 };
 
 const expiryText = {
     fontSize: "14px",
-    color: "#64748b",
+    color: "#666",
     margin: 0,
+    fontStyle: "italic",
 };
 
 const hr = {
-    borderColor: "#e2e8f0",
-    margin: "24px 0",
+    borderColor: "#eaeaea",
+    borderWidth: "1px",
+    margin: "32px 0",
 };
 
 const supportSection = {
     textAlign: "center" as const,
+    margin: "32px 0 0",
 };
 
 const supportText = {
     ...text,
-    margin: "0 0 8px",
+    margin: "0 0 12px",
+    fontWeight: "500",
+};
+
+const supportTextSmall = {
+    ...supportText,
+    fontSize: "14px",
+    margin: "12px 0 0",
 };
 
 const supportLink = {
-    color: "#3b82f6",
+    color: "#3a5eff",
     textDecoration: "none",
-    fontWeight: "bold",
+    fontWeight: "600",
+    fontSize: "16px",
 };
 
 const footer = {
-    padding: "24px 0",
+    padding: "24px 0 0",
     textAlign: "center" as const,
 };
 
-const footerText = {
-    fontSize: "14px",
-    color: "#64748b",
-    margin: "0 0 8px",
+const footerHr = {
+    ...hr,
+    margin: "0 0 24px",
 };
 
 const footerLinks = {
     display: "flex",
-    justifyContent: "center",
-    margin: "0 0 8px",
+    margin: "0 0 20px",
 };
 
 const footerLink = {
-    color: "#3b82f6",
+    color: "#3a5eff",
     textDecoration: "none",
     fontSize: "14px",
+    fontWeight: "500",
 };
 
 const footerSeparator = {
-    color: "#cbd5e1",
-    margin: "0 8px",
+    color: "#ccc",
+    margin: "0 12px",
 };
 
-const footerAddress = {
-    fontSize: "12px",
-    color: "#94a3b8",
-    margin: 0,
+const footerText = {
+    fontSize: "13px",
+    color: "#999",
+    margin: "8px 0 0",
+    lineHeight: "20px",
 };
 
 export default EchoVerifyEmail;
