@@ -61,6 +61,7 @@ export async function POST(request: Request) {
                 verifyCode,
                 verifyCodeExpiry: expiryDate,
             })
+
         }
 
         const emailResponse = await sendVerificationEmail(email, username, verifyCode)
